@@ -13,8 +13,8 @@
     --space: 1rem;
     --space-sm: 0.5rem;
     --space-xs: 0.25rem;
-    --duration: 1s;
-    --duration-sm: .8s;
+    --duration: 1.5s;
+    --duration-sm: 1s;
 }
 
 /* // Reset */
@@ -46,11 +46,12 @@ h3 {
 
 a {
     color: var(--primary-color);
-    transition: all 0.5s;
+    transition: all var(--duration);
 }
 
 a:hover {
     text-decoration: none;
+    transition: all var(--duration);
 }
 
 ul {
@@ -59,9 +60,13 @@ ul {
 
 form {
     width: 50%;
-    animation-duration: .8s;
-    animation-name: slide-in;
+    animation-duration: var(--duration);
     margin-inline-end: auto;
+    animation-name: slide-in-left;
+    animation-duration: var(--duration);
+    animation-timeline: view();
+    animation-range-end: exit;
+    animation-range-start: -20px;
 }
 
 ::marker {
@@ -110,6 +115,7 @@ input[type="submit"]:focus {
 input[type="submit"]:hover {
     color: var(--white);
     background-color: var(--primary-color);
+    transition: all var(--duration);
 }
 
 main>section {
@@ -147,10 +153,14 @@ header {
 }
 
 header img {
-    /* border: var(--line-width) solid var(--primary-color); */
     border-radius: 50%;
     max-width: 80px;
     max-height: 80px;
+}
+
+header>a {
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 header h1 {
@@ -188,12 +198,19 @@ nav a {
     font-weight: bold;
     font-size: 1.1rem;
     border: 1px solid var(--secondary-color);
-    transition: all 0.5s;
+    transition: all var(--duration);
 }
 
 nav a:hover,
 nav a:active,
 nav a:focus {
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+.active {
     color: var(--white);
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
@@ -253,8 +270,6 @@ nav a:focus {
 }
 
 /* // How I build your business */
-#how-i-build {}
-
 #how-i-build ul {
     list-style: none;
     padding: 0;
@@ -267,6 +282,11 @@ nav a:focus {
     border: 1px solid var(--neutral-color);
     background: var(--secondary-color) url(images/true-web-development-black-and-white.svg) no-repeat top right / contain;
     padding: var(--space);
+    animation-name: img-exit-fade;
+    animation-duration: var(--duration);
+    animation-timeline: view();
+    animation-range-start: -50px;
+    animation-range-end: exit;
 }
 
 #how-i-build h3,
@@ -275,6 +295,11 @@ nav a:focus {
     background-color: var(--neutral-color);
     padding: var(--space-sm);
     color: var(--primary-color);
+    animation-name: slide-in-left;
+    animation-duration: var(--duration);
+    animation-timeline: view();
+    animation-range-start: -50px;
+    animation-range-end: exit;
 }
 
 #how-i-build strong {
@@ -329,8 +354,6 @@ nav a:focus {
     animation-range-start: -20px;
 }
 
-#work article:hover img {}
-
 #work h3 {
     margin-block-start: var(--space-sm);
 }
@@ -338,15 +361,12 @@ nav a:focus {
 #work article:hover h3 {
     color: var(--primary-color);
     text-decoration: underline;
+    transition: all var(--duration);
 }
-
-#work article:hover span {}
 
 /* // Contact */
 #contact {
     background: url(images/true-web-development-black-and-white.svg) no-repeat center right / contain;
-    animation-name: "bg-animation";
-    animation-duration: 1.8s;
 }
 
 /* // Footer */
@@ -359,6 +379,10 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
+}
+
+footer p{
+    text-align: end;
 }
 
 /* // Tab */
@@ -484,34 +508,6 @@ footer {
     }
 }
 
-/* // Background Animation */
-@keyframes bg-animation {
-    from {
-        background-size: 80% 80%;
-        background-position: center;
-    }
-
-    to {
-        background-size: 80% 80%;
-        background-position: center;
-    }
-}
-
-/* // Slide-in */
-@keyframes slide-in {
-    from {
-        translate: 120vw 0;
-        opacity: 0;
-        scale: 200% 1;
-    }
-
-    to {
-        translate: 0 0;
-        opacity: 1;
-        scale: 100% 1;
-    }
-}
-
 /* // Image Exit Grow */
 @keyframes img-exit-grow {
     0% {
@@ -546,4 +542,51 @@ footer {
         scale: 0.5;
         opacity: 0.3;
     }
+}
+
+/* // Image Exit Grow */
+@keyframes img-exit-fade {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* // Slide In */
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(150vw);
+        opacity: 0.6;
+    }
+
+    25% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    75% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-150vw);
+        opacity: 0.4;
+    }
+}
+
+@media (prefers-reduced-motion) {
+
 }
