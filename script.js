@@ -79,7 +79,7 @@ profilePicture.addEventListener("click", e => {
     let scale = 1;
     const animateImage = setInterval(() => {
         scale = scale - 0.1;
-        if (scale >= 0.5) {
+        if (scale > 0.5) {
             profilePicture.style.transform = `scale(${scale}, ${scale})`;
         }
         if (scale <= 0.5) {
