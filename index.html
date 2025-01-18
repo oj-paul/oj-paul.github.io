@@ -55,7 +55,7 @@
 
                 if (scale >= 0.5) profilePicture.style.transform = `scale(${scale})`;
 
-                if (translation > 0 && scale == 0) profilePicture.style.transform = `translateY(${translation}px)`;
+                if (translation > 0 && scale <= 0.5) profilePicture.style.transform = `translateY(${translation}px)`;
 
                 // profilePicture.style.opacity = opacity;
                 nameH1.textContent += Array.from(myName)[letterCount];
