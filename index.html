@@ -35,23 +35,34 @@
         // Page transition
         const profilePicture = document.querySelector("#profile-picture");
         const seeDetailsButton = document.querySelector("#see-details");
+        // const detailsDiv = document.querySelector("#splashscreen div");
+        const nameH1 = document.querySelector("#splashscreen h1");
 
         const gotoDetails = e => {
             e.preventDefault();
+            seeDetailsButton.textContent = "Loading ...";
+            seeDetailsButton.setAttribute("disabled", "disabled");
             let scale = 1;
-            let translation = 0;
+            // let opacity = 1;
+            let translation = -200;
+            let letterCount = 0;
+            let myName = "John Paul Obongo";
+            nameH1.textContent = "";
             const animateImage = setInterval(() => {
-                translation = translation - 5;
                 scale = scale - 0.1;
-                if (translation >= -100) {
-                    profilePicture.style.transform = `translateY(${translation}px)`;
-                    if (scale >= 0) profilePicture.style.transform = `scale(${scale})`;
-                }
-                if (scale <= 0) {
+                // opacity = opacity - 0.25;
+                translation = translation + 25;
+
+                if (scale >= 0.5) profilePicture.style.transform = `scale(${scale})`;
+
+                if (translation > 0 && scale == 0) profilePicture.style.transform = `translateY(${translation}px)`;
+
+                // profilePicture.style.opacity = opacity;
+                nameH1.textContent += Array.from(myName)[letterCount];
+                letterCount = letterCount + 1;
+                if (scale <= 0 && letterCount === myName.length) {
                     location.href = "/details.html";
                     profilePicture.style.display = "none";
-                    body.style.backgroundColor = "url(images/profile/rounded-profile-picture-800w.png)";
-                    body.style.backgroundCover = "cover";
                 }
             }, 100);
         };

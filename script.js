@@ -79,10 +79,10 @@ profilePicture.addEventListener("click", e => {
     let scale = 1;
     const animateImage = setInterval(() => {
         scale = scale - 0.1;
-        if (scale >= 0) {
+        if (scale >= 0.5) {
             profilePicture.style.transform = `scale(${scale}, ${scale})`;
         }
-        if (scale <= 0) {
+        if (scale <= 0.5) {
             location.href === "/index.html" ? location.href = "/details.html" : location.href = "/index.html";
         }
     }, 100);
