@@ -44,18 +44,18 @@
             seeDetailsButton.setAttribute("disabled", "disabled");
             let scale = 1;
             // let opacity = 1;
-            let translation = -200;
+            // let translation = -200;
             let letterCount = 0;
             let myName = "John Paul Obongo";
             nameH1.textContent = "";
             const animateImage = setInterval(() => {
                 scale = scale - 0.1;
                 // opacity = opacity - 0.25;
-                translation = translation + 25;
+                // translation = translation - 25;
 
                 if (scale >= 0.5) profilePicture.style.transform = `scale(${scale})`;
 
-                if (translation > 0 && scale <= 0.5) profilePicture.style.transform = `translateY(${translation}px)`;
+                // if (translation < 0 && scale <= 0.5) profilePicture.style.transform = `translateY(${translation}px)`;
 
                 // profilePicture.style.opacity = opacity;
                 nameH1.textContent += Array.from(myName)[letterCount];
