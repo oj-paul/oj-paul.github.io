@@ -168,10 +168,21 @@ main>section {
     gap: var(--space);
 }
 
+#splashscreen a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #splashscreen img {
     max-width: 200px;
     max-height: 200px;
     margin-bottom: var(--space-xs);
+}
+
+#splashscreen h1 {
+    text-align: center;
 }
 
 #splashscreen div {
@@ -211,7 +222,7 @@ header {
 }
 
 header img {
-    border-radius: 50%;
+    /* border-radius: 50%; */
     max-width: 80px;
     max-height: 80px;
 }
@@ -577,10 +588,6 @@ footer p {
         align-items: center;
         color: var(--text-color);
         gap: var(--space);
-    }
-
-    #splashscreen h1 {
-        text-align: center;
     }
 
     #splashscreen div {
