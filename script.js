@@ -74,15 +74,23 @@ window.onscroll = (() => {
 
 // Page transition
 const profilePicture = document.querySelector("#profile-picture");
+const nameH1 = document.querySelector("header h1");
 profilePicture.addEventListener("click", e => {
     e.preventDefault();
     let scale = 1;
+    let letterCount = 0;
+    let myName = "John Paul Obongo";
+    nameH1.textContent = "";
     const animateImage = setInterval(() => {
         scale = scale - 0.1;
         if (scale > 0.5) {
             profilePicture.style.transform = `scale(${scale}, ${scale})`;
         }
-        if (scale <= 0.5) {
+        if (letterCount < myName.length) {
+            nameH1.textContent += Array.from(myName)[letterCount];
+            letterCount = letterCount + 1;
+        }
+        if (letterCount >= myName.length) if (scale <= 0.5) {
             location.href = "/index.html";
         }
     }, 100);
