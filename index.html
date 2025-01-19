@@ -58,9 +58,12 @@
                 // if (translation < 0 && scale <= 0.5) profilePicture.style.transform = `translateY(${translation}px)`;
 
                 // profilePicture.style.opacity = opacity;
-                while (letterCount <= myName.length) nameH1.textContent += Array.from(myName)[letterCount];
-                letterCount = letterCount + 1;
-                if (letterCount === myName.length) if (scale <= 0) {
+                while (letterCount < myName.length) {
+                    nameH1.textContent += Array.from(myName)[letterCount];
+                    letterCount = letterCount + 1;
+                    console.log(letterCount);
+                }
+                if (letterCount >= myName.length) if (scale <= 0) {
                     location.href = "/details.html";
                     profilePicture.style.display = "none";
                 }
