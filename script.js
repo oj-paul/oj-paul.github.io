@@ -83,7 +83,7 @@ profilePicture.addEventListener("click", e => {
             profilePicture.style.transform = `scale(${scale}, ${scale})`;
         }
         if (scale <= 0.5) {
-            location.href === "/index.html" ? location.href = "/details.html" : location.href = "/index.html";
+            location.href = "/index.html";
         }
     }, 100);
 });
