@@ -60,7 +60,7 @@
                 // profilePicture.style.opacity = opacity;
                 nameH1.textContent += Array.from(myName)[letterCount];
                 letterCount = letterCount + 1;
-                if (scale <= 0 && letterCount === myName.length) {
+                if (letterCount === myName.length) if (scale <= 0) {
                     location.href = "/details.html";
                     profilePicture.style.display = "none";
                 }
