@@ -75,8 +75,11 @@ window.onscroll = (() => {
 // Page transition
 const profilePicture = document.querySelector("#profile-picture");
 const nameH1 = document.querySelector("header h1");
+let isLoading = false;
 profilePicture.addEventListener("click", e => {
     e.preventDefault();
+    if(isLoading) return;
+    isLoading = true;
     let scale = 1;
     let letterCount = 0;
     let myName = "John Paul Obongo";
@@ -94,4 +97,8 @@ profilePicture.addEventListener("click", e => {
             location.href = "/index.html";
         }
     }, 100);
+
+    setTimeout(() => {
+        clearInterval(animateImage);
+    }, 3000);
 });
