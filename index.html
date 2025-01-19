@@ -41,7 +41,7 @@
 
         const gotoDetails = e => {
             e.preventDefault();
-            if(isLoading) return;
+            if (isLoading) return;
             isLoading = true;
             seeDetailsButton.textContent = "Loading ...";
             seeDetailsButton.setAttribute("disabled", "disabled");
@@ -60,11 +60,11 @@
                     location.href = "/details.html";
                 }
             }, 100);
-        };
 
-        setTimeout(() => {
-            clearInterval(animateImage);
-        }, 3000);
+            setTimeout(() => {
+                clearInterval(animateImage);
+            }, 3000);
+        };
 
         profilePicture.addEventListener("click", gotoDetails);
         seeDetailsButton.addEventListener("click", gotoDetails);

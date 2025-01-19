@@ -176,6 +176,10 @@ main>section {
     align-items: center;
 }
 
+#splashscreen h1 {
+    text-align: center;
+}
+
 #splashscreen img {
     max-width: 200px;
     max-height: 200px;
@@ -589,6 +593,10 @@ footer p {
         align-items: center;
         color: var(--text-color);
         gap: var(--space);
+    }
+
+    #splashscreen h1 {
+        text-align: center;
     }
 
     #splashscreen div {
