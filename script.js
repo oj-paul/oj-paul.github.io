@@ -6,8 +6,8 @@ contactForm.addEventListener("submit", sendEmail);
 
 function sendEmail(e) {
     e.preventDefault();
-    grecaptcha.ready(function () {
-        grecaptcha.execute('6LeMyLsqAAAAABENnFYUZlsTpMg3TcpGS5XB3mTj', { action: 'submit' }).then(function (token) {
+    // grecaptcha.ready(function () {
+    //     grecaptcha.execute('6LeMyLsqAAAAABENnFYUZlsTpMg3TcpGS5XB3mTj', { action: 'submit' }).then(function (token) {
             emailjs.sendForm(serviceID, contactFormID, this)
                 .then(() => {
                     console.log('SUCCESS!');
@@ -20,8 +20,8 @@ function sendEmail(e) {
                     showFeedback({ title: "Message NOT sent successfully", message: "Please check your internet connection and JavaScript setting and try again." });
                     activateAutoCloseFeedback();
                 });
-        });
-    });
+    //     });
+    // });
 }
 
 function showFeedback({ title, message }) {
