@@ -181,6 +181,8 @@ main>section {
 }
 
 #splashscreen img {
+    width: 50%;
+    height: 50%;
     max-width: 200px;
     max-height: 200px;
     margin-bottom: var(--space-xs);
