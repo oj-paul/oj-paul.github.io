@@ -8,18 +8,18 @@ function sendEmail(e) {
     e.preventDefault();
     // grecaptcha.ready(function () {
     //     grecaptcha.execute('6LeMyLsqAAAAABENnFYUZlsTpMg3TcpGS5XB3mTj', { action: 'submit' }).then(function (token) {
-            emailjs.sendForm(serviceID, contactFormID, this)
-                .then(() => {
-                    console.log('SUCCESS!');
-                    const contactForm = document.querySelector("#template_e3uuswf");
-                    contactForm.reset();
-                    showFeedback({ title: "Message sent successfully", message: "Thank you for contacting me." });
-                    activateAutoCloseFeedback();
-                }, (error) => {
-                    console.log('FAILED...', error);
-                    showFeedback({ title: "Message NOT sent successfully", message: "Please check your internet connection and JavaScript setting and try again." });
-                    activateAutoCloseFeedback();
-                });
+    emailjs.sendForm(serviceID, contactFormID, this)
+        .then(() => {
+            console.log('SUCCESS!');
+            const contactForm = document.querySelector("#template_e3uuswf");
+            contactForm.reset();
+            showFeedback({ title: "Message sent successfully", message: "Thank you for contacting me." });
+            activateAutoCloseFeedback();
+        }, (error) => {
+            console.log('FAILED...', error);
+            showFeedback({ title: "Message NOT sent successfully", message: "Please check your internet connection and JavaScript setting and try again." });
+            activateAutoCloseFeedback();
+        });
     //     });
     // });
 }
@@ -78,7 +78,7 @@ const nameH1 = document.querySelector("header h1");
 let isLoading = false;
 profilePicture.addEventListener("click", e => {
     e.preventDefault();
-    if(isLoading) return;
+    if (isLoading) return;
     isLoading = true;
     let scale = 1;
     let letterCount = 0;
