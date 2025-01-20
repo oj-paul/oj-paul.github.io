@@ -17,7 +17,7 @@ function sendEmail(e) {
                     activateAutoCloseFeedback();
                 }, (error) => {
                     console.log('FAILED...', error);
-                    showFeedback({ title: "Message NOT sent successfully", message: "Please check your <strong>internet connection</strong> and <strong>JavaScript setting</strong> and try again." });
+                    showFeedback({ title: "Message NOT sent successfully", message: "Please check your internet connection and JavaScript setting and try again." });
                     activateAutoCloseFeedback();
                 });
         });

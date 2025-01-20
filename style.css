@@ -715,4 +715,9 @@ footer p {
     }
 }
 
-@media (prefers-reduced-motion) {}
+@media (prefers-reduced-motion) {
+    :root {
+        --duration: 2.0s;
+        --duration-sm: 1.5s;
+    }
+}
