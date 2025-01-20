@@ -186,7 +186,9 @@ main>section {
     margin-bottom: var(--space-xs);
 }
 
-#splashscreen h1 {
+#splashscreen h1,
+#splashscreen h2,
+#splashscreen p {
     text-align: center;
 }
 
