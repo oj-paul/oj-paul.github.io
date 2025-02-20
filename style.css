@@ -479,16 +479,21 @@ nav a:focus {
 footer {
     border-block-start: var(--line-width-sm) solid var(--primary-color);
     background-color: var(--secondary-color);
-    padding-inline: var(--space);
+    padding: var(--space);
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    font-size: 0.9rem;
 }
 
 footer p {
-    text-align: end;
+    font-size: 0.8rem;
+    margin-block: var(--space-xs);
+}
+
+footer address {
+    display: flex;
+    gap: calc(var(--space) * 3);
 }
 
 /* // Tab */
@@ -563,20 +568,6 @@ footer p {
     /* // Label Tab */
     label {
         align-self: flex-start;
-    }
-
-    /* // Footer Tab*/
-    footer {
-        flex-direction: column;
-        padding-inline: 0.5rem;
-        padding-block: var(--space);
-        justify-content: center;
-        align-items: center;
-    }
-
-    footer p {
-        margin: 0;
-        margin-block-start: 0.5rem;
     }
 
     /* // Effects */

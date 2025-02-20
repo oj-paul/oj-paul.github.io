@@ -6,22 +6,22 @@ contactForm.addEventListener("submit", sendEmail);
 
 function sendEmail(e) {
     e.preventDefault();
-    // grecaptcha.ready(function () {
-    //     grecaptcha.execute('6LeMyLsqAAAAABENnFYUZlsTpMg3TcpGS5XB3mTj', { action: 'submit' }).then(function (token) {
-    emailjs.sendForm(serviceID, contactFormID, this)
-        .then(() => {
-            console.log('SUCCESS!');
-            const contactForm = document.querySelector("#template_e3uuswf");
-            contactForm.reset();
-            showFeedback({ title: "Message sent successfully", message: "Thank you for contacting me." });
-            activateAutoCloseFeedback();
-        }, (error) => {
-            console.log('FAILED...', error);
-            showFeedback({ title: "Message NOT sent successfully", message: "Please check your internet connection and JavaScript setting and try again." });
-            activateAutoCloseFeedback();
+    grecaptcha.ready(function () {
+        grecaptcha.execute('6LeMyLsqAAAAABENnFYUZlsTpMg3TcpGS5XB3mTj', { action: 'submit' }).then(function (token) {
+            emailjs.sendForm(serviceID, contactFormID, this)
+                .then(() => {
+                    console.log('SUCCESS!');
+                    const contactForm = document.querySelector("#template_e3uuswf");
+                    contactForm.reset();
+                    showFeedback({ title: "Message sent successfully", message: "Thank you for contacting me." });
+                    activateAutoCloseFeedback();
+                }, (error) => {
+                    console.log('FAILED...', error);
+                    showFeedback({ title: "Message NOT sent successfully", message: "Please check your internet connection and JavaScript setting and try again." });
+                    activateAutoCloseFeedback();
+                });
         });
-    //     });
-    // });
+    });
 }
 
 function showFeedback({ title, message }) {
@@ -70,35 +70,4 @@ window.onscroll = (() => {
             navLinks[i].classList.add("active");
         }
     });
-});
-
-// Page transition
-const profilePicture = document.querySelector("#profile-picture");
-const nameH1 = document.querySelector("header h1");
-let isLoading = false;
-profilePicture.addEventListener("click", e => {
-    e.preventDefault();
-    if (isLoading) return;
-    isLoading = true;
-    let scale = 1;
-    let letterCount = 0;
-    let myName = "John Paul Obongo";
-    nameH1.textContent = "";
-    const animateImage = setInterval(() => {
-        scale = scale - 0.1;
-        if (scale > 0.5) {
-            profilePicture.style.transform = `scale(${scale}, ${scale})`;
-        }
-        if (letterCount < myName.length) {
-            nameH1.textContent += Array.from(myName)[letterCount];
-            letterCount = letterCount + 1;
-        }
-        if (letterCount >= myName.length) if (scale <= 0.5) {
-            location.href = "/index.html";
-        }
-    }, 100);
-
-    setTimeout(() => {
-        clearInterval(animateImage);
-    }, 3000);
 });
