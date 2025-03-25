@@ -17,7 +17,7 @@
     <link rel="shortcut icon" href="images/site-icon.png" type="image/png">
     <link rel="apple-touch-icon" href="images/site-icon.png" />
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeMyLsqAAAAABENnFYUZlsTpMg3TcpGS5XB3mTj"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
@@ -211,6 +211,7 @@
                 <input type="email" name="email-address" id="email-address" validate required>
                 <label for="message">Message</label>
                 <textarea name="message" id="message" cols="30" rows="5" placeholder="Your message" required></textarea>
+                <div class="g-recaptcha" data-sitekey="6LfGSf8qAAAAAFmXrwOhvTJN4tjEbhm2BD1KW-l0"></div>
                 <input type="submit" value="Send message">
             </form>
         </section>
